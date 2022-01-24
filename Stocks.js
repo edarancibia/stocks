@@ -55,12 +55,12 @@ class Portfolio{
         
         let init_price = 0;
         let final_price = 0;
-        let stoacks_search = this.stocks.filter(item => {
+        let stocks_search = this.stocks.filter(item => {
             return Date.parse(item.date) >= Date.parse(start) && Date.parse(item.date) <= Date.parse(end);
         }).sort((a, b) => b.date - a.date);
 
-        init_price = stoacks_search[0].price;
-        final_price = stoacks_search[stoacks_search.length -1].price;
+        init_price = stocks_search[0].price;
+        final_price = stocks_search[stocks_search.length -1].price;
  
         let annualized_return = (((init_price/final_price) **(1/12)) -1) * 100;
         return annualized_return.toFixed(2);
